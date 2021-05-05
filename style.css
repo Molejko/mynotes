@@ -20,7 +20,10 @@ body {
 
 .menu button,
 .note-panel .save,
-.note-panel .cancel{
+.note-panel .cancel,
+.delete-modal,
+.cancel-modal
+{
     padding: 12px 25px;
     background: none;
     border: 1px solid #999;
@@ -29,10 +32,37 @@ body {
     cursor: pointer;
     transition: background-color .3s, color .3s;
 }
+.menu .add {
+    background-color: rgb(117, 223, 226);
+}
+.menu .add:hover{
+    background-color: rgb(13, 147, 151);
+}
 
+.delete-modal,
+.menu .delete-all{
+    background-color: rgb(221, 125, 120);
+    color: #000
+    transition: background-color .3s, color .3s;
+}
+.delete-modal:hover,
+.menu .delete-all:hover{
+    background-color: rgb(201, 55, 47);
+    color: #fff;
+}
+.cancel-modal{
+    background-color: rgb(127, 192, 119);
+    color: #00;
+    transition: background-color .3s, color .3s;
+}
+.cancel-modal:hover{
+    background-color: rgb(64, 165, 50);
+    color: #fff;
+}
 .menu button:hover,
 .note-panel .save:hover,
-.note-panel .cancel:hover{
+.note-panel .cancel:hover
+{
     background-color: #333;
     color: #ddd;
 }
@@ -96,7 +126,24 @@ i {
 
 }
 
-.note-panel h2{
+.deleteAll-modal {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /* border: 1px solid grey; */
+    padding: 20px;
+    z-index: 100;
+    background-color: rgb(231, 227, 227);
+    border-radius: 20px;
+    box-shadow: 0 0 5px black;
+}
+
+
+.note-panel h2,
+.deleteAll-modal h2{
     margin-bottom: 20px;
     text-transform: uppercase;
 }

@@ -3,6 +3,9 @@ const saveBtn = document.querySelector('.save');
 const cancelBtn = document.querySelector('.cancel');
 const deleteBtns = document.getElementsByClassName('delete-note');
 const deleteAllBtn = document.querySelector('.delete-all');
+const deleteAllModal = document.querySelector('.deleteAll-modal');
+const cancelModalBtn = document.querySelector('.cancel-modal');
+const deleteModalBtn = document.querySelector('.delete-modal');
 
 const noteArea = document.querySelector('.note-area');
 const notePanel = document.querySelector('.note-panel');
@@ -34,6 +37,7 @@ const addNote = () =>{
 }
 
 const createNote = () =>{
+    cardID++;
     const newNote = document.createElement('div');
     newNote.classList.add('note');
     newNote.setAttribute('id', cardID);
@@ -48,7 +52,7 @@ const createNote = () =>{
         </div>`
     noteArea.appendChild(newNote);
     closePanel();
-    cardID++;
+    
 }
 
 const selectValue = () =>{
@@ -56,9 +60,31 @@ const selectValue = () =>{
     // console.log(selectedValue);
 }
 
+const showDeleteModal = () =>{
+    if (cardID !== 0){
+        noteArea.style.opacity = ".4";
+        deleteAllModal.style.display = "block";
+    } 
+}
+
+const closeDeleteModal = () =>{
+    deleteAllModal.style.display = "none";
+    noteArea.style.opacity = "1";
+}
+
+const deleteAll = () =>{
+    noteArea.innerHTML = '';
+    deleteAllModal.style.display = "none";
+    cardID = 0;
+    noteArea.style.opacity = "1";
+}
+
 
 addBtn.addEventListener('click', openPanel);
 cancelBtn.addEventListener('click', closePanel);
 saveBtn.addEventListener('click', addNote)
+deleteAllBtn.addEventListener('click', showDeleteModal);
+cancelModalBtn.addEventListener('click', closeDeleteModal);
+deleteModalBtn.addEventListener('click', deleteAll);
 
 
