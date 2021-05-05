@@ -6,6 +6,7 @@ const deleteAllBtn = document.querySelector('.delete-all');
 const deleteAllModal = document.querySelector('.deleteAll-modal');
 const cancelModalBtn = document.querySelector('.cancel-modal');
 const deleteModalBtn = document.querySelector('.delete-modal');
+const note = document.querySelector('.note');
 
 const noteArea = document.querySelector('.note-area');
 const notePanel = document.querySelector('.note-panel');
@@ -50,6 +51,20 @@ const createNote = () =>{
         </div>
         <div class="note-body"> ${textarea.value}
         </div>`
+
+        switch (selectedValue){
+            case 'Zakupy':
+                newNote.style.backgroundColor = "#88f2b4";
+                break;
+            case 'Praca':
+                newNote.style.backgroundColor = "#f2d788";
+                break;
+            case 'Inne':
+                newNote.style.backgroundColor = "#b4ceed";
+                break;
+        }
+
+
     noteArea.appendChild(newNote);
     closePanel();
     
@@ -78,6 +93,8 @@ const deleteAll = () =>{
     cardID = 0;
     noteArea.style.opacity = "1";
 }
+
+
 
 
 addBtn.addEventListener('click', openPanel);
