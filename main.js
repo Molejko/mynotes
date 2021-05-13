@@ -45,7 +45,7 @@ const createNote = () =>{
     newNote.innerHTML = `
         <div class="note-header">
             <h3 class="note-title">${selectedValue}</h3>
-            <button class="delete-note">
+            <button class="delete-note" onclick= "deleteNote(${cardID})">
             <i class="fas fa-times icon"></i>
             </button>
         </div>
@@ -94,7 +94,10 @@ const deleteAll = () =>{
     noteArea.style.opacity = "1";
 }
 
-
+const deleteNote = id =>{
+    const noteToDelete = document.getElementById(id);
+    noteArea.removeChild(noteToDelete);
+}
 
 
 addBtn.addEventListener('click', openPanel);
@@ -103,5 +106,6 @@ saveBtn.addEventListener('click', addNote)
 deleteAllBtn.addEventListener('click', showDeleteModal);
 cancelModalBtn.addEventListener('click', closeDeleteModal);
 deleteModalBtn.addEventListener('click', deleteAll);
+
 
 
