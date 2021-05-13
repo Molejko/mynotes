@@ -76,7 +76,8 @@ const selectValue = () =>{
 }
 
 const showDeleteModal = () =>{
-    if (cardID !== 0){
+    // console.log(noteArea.children.length);
+    if (noteArea.children.length != 0){
         noteArea.style.opacity = ".4";
         deleteAllModal.style.display = "block";
     } 
